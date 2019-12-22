@@ -21,6 +21,7 @@ class PokemonService {
       List<PokemonData> returnList = [];
       for (var data in pokemonList) {
         PokemonData detail = await getPokemonDetail(data['url']);
+        log(detail.types.toString());
         returnList.add(detail);
       }
       return returnList;
