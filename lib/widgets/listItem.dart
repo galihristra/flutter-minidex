@@ -5,7 +5,7 @@ import 'package:minidex/shared/sharedLibrary.dart';
 
 Card pokemonListItem(BuildContext context, int index, PokemonData pokemon) {
   return Card(
-    margin: EdgeInsets.all(10),
+    margin: EdgeInsets.all(6),
     child: Column(
       children: <Widget>[
         ListTile(

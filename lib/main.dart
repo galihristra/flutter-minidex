@@ -15,11 +15,12 @@ class Pokedex extends StatefulWidget {
 class _PokedexState extends State<Pokedex> {
   List<PokemonData> _pokemonDatas = List<PokemonData>();
   bool isLoading = true;
+  ScrollController _scrollController = new ScrollController();
 
   void _loadPokemonList() {
     PokemonService().getAllPokemonData().then((result) {
       setState(() {
-        _pokemonDatas = result;
+        _pokemonDatas.addAll(result);
         isLoading = false;
       });
     }).then((value) {

@@ -12,7 +12,7 @@ class PokemonService {
   ///
   /// Should return complete pokemon data (name, sprites)
   Future<List<PokemonData>> getAllPokemonData() async {
-    final response = await http.get(baseUrl + 'pokemon/');
+    final response = await http.get(baseUrl + 'pokemon/?offset=0&limit=20');
     if (response.statusCode == 200) {
       // ? decode json data
       final result = json.decode(response.body);
@@ -21,7 +21,6 @@ class PokemonService {
       List<PokemonData> returnList = [];
       for (var data in pokemonList) {
         PokemonData detail = await getPokemonDetail(data['url']);
-        log(detail.types.toString());
         returnList.add(detail);
       }
       return returnList;
