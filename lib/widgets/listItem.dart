@@ -4,10 +4,10 @@ import 'package:minidex/models/pokemonData.dart';
 
 ListTile pokemonListItem(BuildContext context, int index, PokemonData pokemon) {
   return ListTile(
-    // leading: CachedNetworkImage(
-    //   placeholder: (context, url) => CircularProgressIndicator(),
-    //   imageUrl: pokemon.sprite,
-    // ),
+    leading: CachedNetworkImage(
+      placeholder: (context, url) => CircularProgressIndicator(),
+      imageUrl: pokemon.spriteUrl['front_default'],
+    ),
     title: Text(pokemon.name),
   );
 }

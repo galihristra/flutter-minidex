@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:minidex/models/pokemonData.dart';
 import 'package:minidex/services/pokemonService.dart';
@@ -20,6 +22,8 @@ class _PokedexState extends State<Pokedex> {
         _pokemonDatas = result;
         isLoading = false;
       });
+    }).then((value) {
+      log('load done');
     });
   }
 

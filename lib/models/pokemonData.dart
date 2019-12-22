@@ -1,11 +1,22 @@
 class PokemonData {
-  String name;
-  String url;
-  String sprite;
+  final List<dynamic> abilities;
+  final String name;
+  final dynamic spriteUrl;
 
-  PokemonData({this.name, this.url, this.sprite});
+  PokemonData({this.abilities, this.name, this.spriteUrl});
 
-  factory PokemonData.fromjson(Map<String, dynamic> json) {
-    return PokemonData(name: json['name'], url: json['url']);
+  factory PokemonData.fromJson(Map<String, dynamic> json) {
+    return PokemonData(
+        abilities: json['abilities'],
+        name: json['name'],
+        spriteUrl: json['sprites']);
   }
+}
+
+class Ability {
+  Map<String, String> ability;
+  bool isHidden;
+  int slot;
+
+  Ability({this.ability, this.isHidden, this.slot});
 }
